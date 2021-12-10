@@ -4,6 +4,10 @@ const testObject = {name: "Mary", surname: "Lamb", email: "maryhad@little.lamb"}
 const stringArr = ["str1", "str2", "str3", "str4", "str5", "str6", "str7", "str8", "str9", "str10"]
 let randomArr = []
 let arrEx28 = []
+const container = document.getElementById("container")
+const allTDs = document.getElementsByTagName("td")
+
+console.log("Page loaded")
 
 console.log(x + " <> " + y)
 
@@ -67,3 +71,54 @@ const arrayOne = fillArr(2)
 const arrayTwo = fillArr(2)
 
 console.log(biggerSum(sumArr(arrayOne), sumArr(arrayTwo)))
+
+console.log(container)
+
+console.log(allTDs)
+console.log(allTDs.length)
+
+for (let i = 0; i < allTDs.length; i++){
+    allTDs[i].innerHTML = "text"
+}
+
+const changeHeading = (newHeading) => {
+    let heading = document.querySelector(".heading")
+    heading.innerText = newHeading}
+
+changeHeading("JS Inserted Heading")
+
+const insertRow = () => {
+    const newRow = document.createElement("tr")
+    console.log(newRow)
+    newRow.innerText = "JS"
+    console.log(newRow)
+    document.getElementById("main-table").appendChild(newRow)}
+
+insertRow()
+
+const addClassToRow = (className) =>{
+    const rowArray = document.getElementsByTagName("tr")
+    console.log(rowArray)
+    for (let i = 0; i < rowArray.length; i++){
+        rowArray[i].classList.add(className)}
+}
+
+addClassToRow("red")
+
+const addRedBackground = () => {
+    const allLinks = document.getElementsByTagName("a")
+    for (let i = 0; i < allLinks.length; i++){
+        allLinks[i].style.background = "red"
+}}
+
+addRedBackground()
+
+const addItemsToUl = (itemText) => {
+    const newItem = document.createElement("li")
+    newItem.innerText = itemText
+    document.getElementById("ulist").appendChild(newItem)
+} 
+
+const emptyList = () => {
+    document.getElementById("ulist").innerHTML = ""
+}
