@@ -72,13 +72,26 @@
     -->
   <head>
     <title>Webpage Title</title>
-    <style>table{border: 2px solid black;}td{border: 1px solid black;width: 3rem;}img{max-width: 40px;}.container{border: 2px solid red;}</style>
+    <style>
+      body{max-width: 1200px;margin: 0 auto;}
+      h1{margin: 0 auto; max-width: 40%;}
+      table{border: 2px solid black;margin: 3rem;border-collapse: collapse;}
+      tr{border: 4px dotted greenyellow;}
+      td{border: 3px solid green;width: 3rem;padding: 1rem;}
+      img{max-width: 100%;}
+      p{margin: 2rem;}
+      a{color: rgb(25, 175, 32);text-decoration: none;}
+      footer > a{margin: 3rem;}
+      .container{border: 2px solid green;margin: 5rem;}
+      .font-edit{font-size: 1.5rem;font-weight: 800;}
+      .hide{display: none;}
+    </style>
   </head>
   <body>
     <h1>Incredible Heading</h1>
     <ol>Ordered List
       <li>Item 1</li>
-      <li>Item 2</li>
+      <li class="font-edit">Item 2</li>
       <li>Item 3</li>
       <li>Item 4</li>
     </ol>
@@ -128,13 +141,16 @@
     </table>
     <hr>
     <div class="container">
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iure eius expedita optio itaque libero veritatis recusandae ullam fuga, deserunt molestiae eos reprehenderit asperiores, minus nisi animi? Nam, repellendus pariatur.</p>
-      <ul>
+      <ul>      
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iure eius expedita optio itaque libero veritatis recusandae ullam fuga, deserunt molestiae eos reprehenderit asperiores, minus nisi animi? Nam, repellendus pariatur.</p>
+        <p class="hide">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iure eius expedita optio itaque libero veritatis recusandae ullam fuga, deserunt molestiae eos reprehenderit asperiores, minus nisi animi? Nam, repellendus pariatur.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iure eius expedita optio itaque libero veritatis recusandae ullam fuga, deserunt molestiae eos reprehenderit asperiores, minus nisi animi? Nam, repellendus pariatur.</p>
         <li>Item 1</li>
-        <li>Item 2</li>
+        <li class="font-edit">Item 2</li>
       </ul>
     </div>
     <footer>
+        <a href="www.google.com">Wow a link</a>
         <p>Author: Matt Ginter</p>
     </footer>
   </body>
