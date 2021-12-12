@@ -77,13 +77,13 @@
   </head>
   <body>
     <h1 class="heading">Incredible Heading</h1>
-    <ol>Ordered List
+    <ol>
       <li>Item 1</li>
       <li class="font-edit">Item 2</li>
       <li>Item 3</li>
       <li>Item 4</li>
     </ol>
-    <a class="all-links" href="www.github.com">Wow a link</a><br>
+    <a class="all-links right" href="www.github.com">Wow a link</a><br>
     <!-- <button onclick="selectLinks()">Extra 1: Select Links</button> -->
     <button onclick="hideImages()">Extra 2: Hide Images</button>
     <button onclick="toggleTable()">Extra 3: Hide Table</button>
@@ -99,7 +99,7 @@
       <tr>
         <td>1</td>
         <td>
-          <a href="https://app.emaze.com/@AWOLTCIT#2"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
+          <a href="https://www.google.com"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
         </td>
         <td>1</td>
         <td>1</td>
@@ -108,7 +108,7 @@
       <tr>
         <td>2</td>
         <td>
-          <a href="https://app.emaze.com/@AWOLTCIT#2"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
+          <a href="https://www.google.com"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
         </td>
         <td>2</td>
         <td>2</td>
@@ -117,7 +117,7 @@
       <tr>
         <td>3</td>
         <td>
-          <a href="https://app.emaze.com/@AWOLTCIT#2"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
+          <a href="https://www.google.com"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
         </td>
         <td colspan="2">3</td>
         <td>3</td>
@@ -125,13 +125,14 @@
       <tr>
         <td>4</td>
         <td>
-          <a href="https://app.emaze.com/@AWOLTCIT#2"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
+          <a href="https://www.google.com"><img src="https://userscontent2.emaze.com/images/5a380f5c-6305-4afa-ba14-7aba8e6aa0c7/b36f76f350aa571bc547830d960c4d75.jpg" alt="plant"></a>
         </td>
         <td>4</td>
         <td>4</td>
         <td>4</td>
       </tr>
     </table>
+    <button onclick="deleteTD()">Remove Random Cell</button>
     <hr>
     <div id="container">      
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iure eius expedita optio itaque libero veritatis recusandae ullam fuga, deserunt molestiae eos reprehenderit asperiores, minus nisi animi? Nam, repellendus pariatur.</p>
@@ -145,6 +146,8 @@
       <button onclick="emptyList()">Empty List</button>
     </div>
     <footer>
+        <button onclick="createTable(3, 4)">Create New Table</button>
+        <button onclick="deleteTable()">Remove Last Table</button>
         <a class="all-links" href="www.google.com">Wow a link</a>
         <p>Author: Matt Ginter</p>
     </footer>

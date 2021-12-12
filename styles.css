@@ -8,7 +8,7 @@ h1{
 }
 table{
     border: 2px solid black;
-    margin: 3rem;
+    margin: 2rem 1rem;
     border-collapse: collapse;
 }
 tr{
@@ -18,25 +18,35 @@ td{
     border: 3px solid green;
     width: 3rem;
     padding: 1rem;
+    text-align: center;
 }
 img{
     max-width: 100%;
     padding: 0.125rem;
 }
+li{
+    margin: 0.5rem;
+}
 p{
     margin: 2rem;
 }
 a{
-    color: green;
+    color: white;
     text-decoration: none;
     padding: 0.5rem;
 }
 footer > a{
     margin: 3rem;
 }
+button{
+    margin: 2rem;
+}
 #container{
     border: 2px solid green;
     margin: 5rem;
+}
+.heading{
+    cursor: pointer;
 }
 .font-edit{
     font-size: 1.5rem;
@@ -46,6 +56,23 @@ footer > a{
     display: none;
 }
 .red{
-    font-size: xx-large; 
+    font-size: x-large; 
     color: red;
+}
+.padding{
+    padding: 0.25rem;
+}
+.box-highlight{
+    background-color: red;
+    color: white;
+}
+.border-highlight{
+    border: 5px solid salmon;
+    color: royalblue;
+    font-size: x-large;
+}
+.right{
+    width: 15%;
+    float: right;
+    text-align: center;
 }

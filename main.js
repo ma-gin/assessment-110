@@ -9,10 +9,24 @@ let arrEx28 = []
 const container = document.getElementById("container")
 const allTDs = document.getElementsByTagName("td")
 const everyLink = document.getElementsByClassName("all-links")
+let heading = document.querySelector(".heading")
 
 // *********** EVENT LISTENERS ***********
 
+heading.addEventListener("click", () =>{
+    heading.innerText = heading.innerText.split("").slice(0, -1).join("")
+})
 
+for (let i = 0; i < allTDs.length; i++){
+    allTDs[i].addEventListener("click", () =>{
+        // allTDs[i].style.backgroundColor = "red" //by styling
+        allTDs[i].classList.toggle("box-highlight") //allows to go back to original state
+})}
+
+for (let i = 0; i < allTDs.length; i++){
+    allTDs[i].addEventListener("mouseover", () =>{
+        allTDs[i].classList.toggle("border-highlight")
+})}
 
 // *********** DECLARATION OF FUNCTIONS ***********
 
@@ -45,16 +59,19 @@ const arrayOfArr = (range) =>{
 const longestArr = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2
 
 const sumArr = (arr) =>{
+    console.log(arr)
     let length = arr.length
     let result = 0
-    for (let i = 0; i < length; i++){
-        const lastElement = arr.pop()
-        result += lastElement}
+    for (let i = 1; i <=length; i++){
+        result += arr.at(-i)
+    }
     console.log(result)
     return result
 }
 
-const biggerSum = (arr1, arr2) => arr1 > arr2 ? "arrayOne" : "arrayTwo" // how to do this since the original array has been mutated... grrr
+const biggerSum = (arr1, arr2) => arr1 > arr2 ? console.log(`The sum of ${arrayOne} is greater than the sum ${arrayTwo}.`) : console.log(`The sum of ${arrayTwo} is greater than the sum ${arrayOne}.`)  // how to do this since the original array has been mutated... grrr
+//equal case not considered, could just use another function in the else
+
 
 // for (let i = 0; i < allTDs.length; i++){
 //     allTDs[i].innerHTML = "text"
@@ -65,12 +82,15 @@ const changeHeading = (newHeading) => {
     heading.innerText = newHeading
 }
 
-const insertRow = () => {
+const insertRow = (text) => {
     const newRow = document.createElement("tr")
-    console.log(newRow)
-    newRow.innerText = "JS"
-    console.log(newRow)
-    document.getElementById("main-table").appendChild(newRow)
+    const newCell = document.createElement("td")
+    newCell.innerText = text
+    newCell.classList.add("padding")
+    newCell.setAttribute("colspan", "5");
+    const tBody = document.getElementsByTagName("tbody")[0]
+    tBody.appendChild(newRow)
+    newRow.appendChild(newCell)
 }
 
 const addClassToRow = (className) =>{
@@ -90,7 +110,7 @@ const addItemsToUl = (itemText) => {
     const newItem = document.createElement("li")
     newItem.innerText = itemText
     document.getElementById("ulist").appendChild(newItem)
-} 
+}
 
 const emptyList = () => {
     document.getElementById("ulist").innerHTML = ""
@@ -110,13 +130,13 @@ const hideImages = () =>{
         images[i].classList.add("hide")
 }}
 
-// Extra 3 //easy because there is only one element
+// Extra 3
 const toggleTable = () => {
     const tableElement = document.getElementById("main-table")
     tableElement.classList.toggle("hide")
 }
 
-const getArrayOfTableNumbers = () => {
+const sumTable = () => { //this should probably be two seperate functions
     let sum = 0
     let result = []
     for (let i = 0; i < allTDs.length; i++){
@@ -131,10 +151,31 @@ const getArrayOfTableNumbers = () => {
     return sum
 }
 
-// const arrStr = ["1", "3", "5", "9"];
-// const nuevo = arrStr.map((i) => Number(i));
-// console.log(nuevo);
+// Extra 7
+function deleteTD(){ //in order to make sure it works every time the button is clicked a new array would need to be formed and with the pop method this could be achieved
+    console.log(allTDs)
+    const randomTDindex = Math.floor(Math.random() * allTDs.length)
+    allTDs[randomTDindex].classList.add("hide")
+}
 
+//Extra 9
+function createTable(x, y){  //add input functionality
+    const newTable = document.createElement("table")
+    for (let i = 0; i < y; i++){
+        const newRow = document.createElement("tr")
+        for (let i = 0; i < x; i++){
+            const newCell = document.createElement("td")
+            newCell.innerText = i + 1
+            newRow.appendChild(newCell)}
+    newTable.appendChild(newRow)}
+    container.appendChild(newTable)
+}
+
+//Extra 10
+const deleteTable = function(){ //improve functionality with contains method
+    const lastTable = document.getElementsByTagName("table")
+    lastTable[lastTable.length - 1].classList.add("hide")
+}
 // *********** INITIALIZATION ***********
 
 console.log(x + " <> " + y)
@@ -147,14 +188,14 @@ findMinMax(randomArr)
 arrayOfArr(3)
 console.log(longestArr(arrEx26, arrEx28))
 console.log("EX30")
-const arrayOne = fillArr(2)
-const arrayTwo = fillArr(2)
-console.log(biggerSum(sumArr(arrayOne), sumArr(arrayTwo)))
+const arrayOne = fillArr(3)
+const arrayTwo = fillArr(3)
+biggerSum(sumArr(arrayOne), sumArr(arrayTwo))
 console.log(container)
 console.log(allTDs)
 console.log(allTDs.length)
 changeHeading("JS Inserted Heading")
-insertRow()
+insertRow("JS Inserted Row")
 addClassToRow("red")
 addRedBackground()
 selectLinks()
