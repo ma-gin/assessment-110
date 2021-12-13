@@ -3,7 +3,7 @@
 const x = "John"
 const y = "Doe"
 const testObject = {name: "Mary", surname: "Lamb", email: "maryhad@little.lamb"}
-const stringArr = ["str1", "str2", "str3", "str4", "str5", "str6", "str7", "str8", "str9", "str10"]
+const stringArr = []
 let randomArr = []
 let arrEx28 = []
 const container = document.getElementById("container")
@@ -29,6 +29,10 @@ for (let i = 0; i < allTDs.length; i++){
 })}
 
 // *********** DECLARATION OF FUNCTIONS ***********
+for (let i = 0; i < 10; i++){
+    stringArr.push("str: " + (i +1))
+}
+console.log(stringArr)
 
 for (let i = 0; i < stringArr.length; i++) console.log(stringArr[i])
 
@@ -103,7 +107,7 @@ const addClassToRow = (className) =>{
 const addRedBackground = () => {
     const allLinks = document.getElementsByTagName("a")
     for (let i = 0; i < allLinks.length; i++){
-        allLinks[i].style.background = "red"
+        allLinks[i].style.background = "green"
 }}
 
 const addItemsToUl = (itemText) => {

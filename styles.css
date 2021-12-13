@@ -10,6 +10,7 @@ table{
     border: 2px solid black;
     margin: 2rem 1rem;
     border-collapse: collapse;
+    border-spacing: 5px;
 }
 tr{
     border: 4px dotted green;
@@ -17,12 +18,12 @@ tr{
 td{
     border: 3px solid green;
     width: 3rem;
-    padding: 1rem;
+    /* padding: 1rem; */
     text-align: center;
 }
 img{
     max-width: 100%;
-    padding: 0.125rem;
+    /* padding: 0.125rem; */
 }
 li{
     margin: 0.5rem;
@@ -33,10 +34,11 @@ p{
 a{
     color: white;
     text-decoration: none;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
 }
 footer > a{
     margin: 3rem;
+    padding: 0.5rem;
 }
 button{
     margin: 2rem;
