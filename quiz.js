@@ -98,15 +98,31 @@ const questions = [
         },
       ]
 
-const renderQuestion = function () {
+const renderQandA = function () {
     const index = Math.floor(Math.random() * questions.length)
     const question = questions.slice(index, index + 1)
     const questionWrapper = document.getElementById("question")
     questionWrapper.innerText = question[0].question
     const answerWrapper = document.createElement("div")
     answerWrapper.classList.add("answers")
-    const lastElement = document.getElementById("question-div")
-    lastElement.insertBefore(answerWrapper, null)
+    const answers = question[0].incorrect_answers
+    answers.push(question[0].correct_answer)
+    answers.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < answers.length; i++){
+        const option = document.createElement('div')
+        const input = document.createElement('input')
+        input.setAttribute("type", "radio")
+        // console.log(input)
+        option.appendChild(input)
+        const optionItem = document.createElement('div')
+        optionItem.innerText = answers[i]
+        option.appendChild(optionItem)
+        option.classList.add("option")
+        answerWrapper.appendChild(option)
     }
+    const displayContainer = document.getElementById("question-div")
+    displayContainer.insertBefore(answerWrapper, null)
+}
+    
       
-renderQuestion()
+renderQandA()
