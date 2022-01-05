@@ -41,7 +41,7 @@
       flex-direction: column;
       gap: 20px;
       font-size: 0.8rem;
-      margin: 5rem auto;
+      margin-top: 3rem;
   }
 
   .option{
@@ -50,4 +50,10 @@
       gap: 25px;
       padding: 1rem;
       min-width: 300px;
+  }
+
+  #main-btn{
+      margin-top: 3rem;
+      padding: 1rem;
+      border-radius: 10px;
   }

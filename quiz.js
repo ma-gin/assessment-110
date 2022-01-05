@@ -96,22 +96,27 @@ const questions = [
           correct_answer: "Java",
           incorrect_answers: ["Python", "C", "Jakarta"],
         },
-      ]
+]
+const displayContainer = document.getElementById("question-div")
+
 
 const renderQandA = function () {
+    const answerWrapper = document.createElement("div")
     const index = Math.floor(Math.random() * questions.length)
-    const question = questions.slice(index, index + 1)
+    const question = questions.splice(index, 1)
     const questionWrapper = document.getElementById("question")
     questionWrapper.innerText = question[0].question
-    const answerWrapper = document.createElement("div")
     answerWrapper.classList.add("answers")
     const answers = question[0].incorrect_answers
+    console.log(answers)
     answers.push(question[0].correct_answer)
+    console.log(answers)
     answers.sort(() => Math.random() - 0.5);
     for (let i = 0; i < answers.length; i++){
         const option = document.createElement('div')
         const input = document.createElement('input')
         input.setAttribute("type", "radio")
+        input.setAttribute("name", "answer")
         // console.log(input)
         option.appendChild(input)
         const optionItem = document.createElement('div')
@@ -120,9 +125,14 @@ const renderQandA = function () {
         option.classList.add("option")
         answerWrapper.appendChild(option)
     }
-    const displayContainer = document.getElementById("question-div")
     displayContainer.insertBefore(answerWrapper, null)
+    const mainBtn = document.getElementById('main-btn')
+    mainBtn.innerText = "Next Question"
+    mainBtn.setAttribute("onclick", "nextQuestion()")
+    console.log(questions.length)
 }
-    
-      
-renderQandA()
+
+const nextQuestion = function () {
+    displayContainer.removeChild(displayContainer.lastChild)
+    renderQandA()
+}
