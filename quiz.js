@@ -99,10 +99,12 @@ const questions = [
 ]
 const displayContainer = document.getElementById("question-div")
 const mainBtn = document.getElementById('main-btn')
-const correctCount = 0
+let correctCount = 0
+let correctAnswer
 
 
 const renderQandA = function () {
+    displayContainer.style.minHeight =  "50vh"
     if (questions.length !== 0) {
         const answerWrapper = document.createElement("div")
         const index = Math.floor(Math.random() * questions.length)
@@ -111,7 +113,8 @@ const renderQandA = function () {
         questionWrapper.innerText = question[0].question
         answerWrapper.classList.add("answers")
         const answers = question[0].incorrect_answers
-        answers.push(question[0].correct_answer)
+        correctAnswer = question[0].correct_answer
+        answers.push(correctAnswer)
         answers.sort(() => Math.random() - 0.5);
         for (let i = 0; i < answers.length; i++){
             const option = document.createElement('div')
@@ -131,7 +134,6 @@ const renderQandA = function () {
         displayContainer.insertBefore(answerWrapper, null)
         mainBtn.innerText = "Next Question"
         mainBtn.setAttribute("onclick", "nextQuestion()")
-        return question[0].correct_answer
         
     } else {
         displayResult()
@@ -139,9 +141,6 @@ const renderQandA = function () {
 }
 
 const validateAnswer = () => {
-    const answer = document.querySelector('input[name=answer]:checked')
-    // if(answer.nextElementSibling.innerHTML === )
-    // console.log(answer)
     const inputs = document.getElementsByName("answer")
     let formValid = false
 
@@ -152,18 +151,25 @@ const validateAnswer = () => {
     }
 
     if (!formValid) alert("Please select an answer!")
-    return formValid
+    const answer = document.querySelector('input[name=answer]:checked')
+    return answer.nextElementSibling.innerHTML
 }
 
 const nextQuestion = function () {
-    validateAnswer()
+    const selectedAnswer = validateAnswer()
+    console.log(selectedAnswer)
+    console.log(correctAnswer)
+    if (selectedAnswer === correctAnswer) correctCount++
+    console.log(correctCount)
     displayContainer.removeChild(displayContainer.lastChild)
     renderQandA()
+    
 }
 
 const displayResult = function () {
     mainBtn.remove()
     displayContainer.innerHTML = ""
     const resultWrapper = document.createElement('div')
-    // resultWrapper.innerHTML = `You scored ${} out of `
+    resultWrapper.innerHTML = `You scored ${correctCount} out of 10.<br><br>Please reload the page to try again.`
+    displayContainer.appendChild(resultWrapper)
 }
