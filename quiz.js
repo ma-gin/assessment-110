@@ -134,7 +134,6 @@ const renderQandA = function () {
         displayContainer.insertBefore(answerWrapper, null)
         mainBtn.innerText = "Next Question"
         mainBtn.setAttribute("onclick", "nextQuestion()")
-        
     } else {
         displayResult()
     }
@@ -155,14 +154,23 @@ const validateAnswer = () => {
     return answer.nextElementSibling.innerHTML
 }
 
+const notifyIncorrect = () => {
+  mainBtn.classList.add('incorrect')
+  setTimeout(function () { mainBtn.classList.remove('incorrect') }, 800)
+}
+
+const notifyCorrect = () => {
+  mainBtn.classList.add('correct')
+  setTimeout(function () { mainBtn.classList.remove('correct') }, 800)
+  correctCount++
+}
+
 const nextQuestion = function () {
-    const selectedAnswer = validateAnswer()
-    console.log(selectedAnswer)
-    console.log(correctAnswer)
-    if (selectedAnswer === correctAnswer) correctCount++
-    console.log(correctCount)
-    displayContainer.removeChild(displayContainer.lastChild)
-    renderQandA()
+  const selectedAnswer = validateAnswer()
+  if (selectedAnswer === correctAnswer) notifyCorrect()
+  else notifyIncorrect ()
+  displayContainer.removeChild(displayContainer.lastChild)
+  renderQandA()
     
 }
 
@@ -170,6 +178,6 @@ const displayResult = function () {
     mainBtn.remove()
     displayContainer.innerHTML = ""
     const resultWrapper = document.createElement('div')
-    resultWrapper.innerHTML = `You scored ${correctCount} out of 10.<br><br>Please reload the page to try again.`
+    resultWrapper.innerHTML = `You scored ${correctCount} out of 10.<br><br><p style="opacity: 0.75">Please reload the page to try again.</p>`
     displayContainer.appendChild(resultWrapper)
 }

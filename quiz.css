@@ -30,31 +30,44 @@
   }
 
   section{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .answers{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 0.8rem;
-      margin-top: 5rem;
-      width: 70vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 0.8rem;
+    padding-top: 4rem;
+    width: 70vw;
+    margin: 0 auto;
   }
 
   .option{
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      padding: 1rem;
-      width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 1rem;
+    width: fit-content;
   }
 
   #main-btn{
-      margin-top: 3rem;
-      padding: 1rem;
-      border-radius: 10px;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .correct{
+    background-color: rgb(140, 212, 32);
+    font-weight: bold;
+    color: white;
+  }
+
+  .incorrect{
+    background-color: lightcoral;
+    font-weight: bold;
+    color: white;
   }
