@@ -89,6 +89,14 @@ const questions = [
         },
         {
           category: "Science: Computers",
+          type: "boolean",
+          difficulty: "easy",
+          question: "I Like Pizza",
+          correct_answer: "True",
+          incorrect_answers: ["False"], 
+        },
+        {
+          category: "Science: Computers",
           type: "multiple",
           difficulty: "easy",
           question:
@@ -115,7 +123,12 @@ const renderQandA = function () {
         const answers = question[0].incorrect_answers
         correctAnswer = question[0].correct_answer
         answers.push(correctAnswer)
-        answers.sort(() => Math.random() - 0.5);
+        if (answers.length > 2) answers.sort(() => Math.random() - 0.5)
+        if (answers.length === 2) {
+          if (answers.indexOf("True") !== 0) {
+            [answers[1], answers[0]] = [answers[0], answers[1]]
+          }
+        }       
         for (let i = 0; i < answers.length; i++){
             const option = document.createElement('div')
             const input = document.createElement('input')
