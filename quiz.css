@@ -44,6 +44,7 @@ section{
   margin: 0 auto;
 }
 .option{
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 25px;

@@ -122,7 +122,9 @@ const renderQandA = function () {
             option.appendChild(input)
             input.setAttribute("type", "radio")
             input.setAttribute("name", "answer")
-          // input.parentElement.addEventListener('click', () => { })
+            input.parentElement.addEventListener('click', () => {
+              input.click()  
+            })
             const optionId = `answer${i}`
             const optionItem = document.createElement('label')
             input.setAttribute("id", optionId)
