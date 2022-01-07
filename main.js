@@ -73,14 +73,7 @@ const sumArr = (arr) =>{
     return result
 }
 
-const biggerSum = (arr1, arr2) => arr1 > arr2 ? console.log(`The sum of ${arrayOne} is greater than the sum ${arrayTwo}.`) : console.log(`The sum of ${arrayTwo} is greater than the sum ${arrayOne}.`)  // how to do this since the original array has been mutated... grrr
-//equal case not considered, could just use another function in the else
-
-
-// for (let i = 0; i < allTDs.length; i++){
-//     allTDs[i].innerHTML = "text"
-// }
-
+const biggerSum = (arr1, arr2) => arr1 > arr2 ? console.log(`The sum of ${arrayOne} is greater than the sum ${arrayTwo}.`) : console.log(`The sum of ${arrayTwo} is greater than the sum ${arrayOne}.`)
 const changeHeading = (newHeading) => {
     let heading = document.querySelector(".heading")
     heading.innerText = newHeading
@@ -176,7 +169,7 @@ function createTable(x, y){  //add input functionality
 }
 
 //Extra 10
-const deleteTable = function(){ //improve functionality with contains method
+const deleteTable = function(){
     const lastTable = document.getElementsByTagName("table")
     lastTable[lastTable.length - 1].classList.add("hide")
 }
