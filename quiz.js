@@ -97,7 +97,7 @@ const questions = [
           incorrect_answers: ["Python", "C", "Jakarta"],
         },
 ]
-const displayContainer = document.getElementById("question-div")
+const displayContainer = document.getElementById("question-container")
 const mainBtn = document.getElementById('main-btn')
 let correctCount = 0
 let correctAnswer
@@ -109,7 +109,7 @@ const renderQandA = function () {
         const answerWrapper = document.createElement("div")
         const index = Math.floor(Math.random() * questions.length)
         const question = questions.splice(index, 1)
-        const questionWrapper = document.getElementById("question")
+        const questionWrapper = document.getElementById("question-wrapper")
         questionWrapper.innerText = question[0].question
         answerWrapper.classList.add("answers")
         const answers = question[0].incorrect_answers
@@ -119,12 +119,13 @@ const renderQandA = function () {
         for (let i = 0; i < answers.length; i++){
             const option = document.createElement('div')
             const input = document.createElement('input')
+            option.appendChild(input)
             input.setAttribute("type", "radio")
             input.setAttribute("name", "answer")
+          // input.parentElement.addEventListener('click', () => { })
             const optionId = `answer${i}`
-            input.setAttribute("id", optionId)
-            option.appendChild(input)
             const optionItem = document.createElement('label')
+            input.setAttribute("id", optionId)
             optionItem.setAttribute("for", optionId)
             optionItem.innerText = answers[i]
             option.appendChild(optionItem)
@@ -155,13 +156,13 @@ const validateAnswer = () => {
 }
 
 const notifyIncorrect = () => {
-  mainBtn.classList.add('incorrect')
-  setTimeout(function () { mainBtn.classList.remove('incorrect') }, 800)
+  document.body.style.backgroundColor = "lightcoral"
+  setTimeout(function () { document.body.style.backgroundColor = "white" }, 250)
 }
 
 const notifyCorrect = () => {
-  mainBtn.classList.add('correct')
-  setTimeout(function () { mainBtn.classList.remove('correct') }, 800)
+  document.body.style.backgroundColor = "lightgreen"
+  setTimeout(function () { document.body.style.backgroundColor = "white" }, 250)
   correctCount++
 }
 
@@ -171,13 +172,14 @@ const nextQuestion = function () {
   else notifyIncorrect ()
   displayContainer.removeChild(displayContainer.lastChild)
   renderQandA()
-    
+}
+
+const reloadPage = function () {
+  window.location.reload()
 }
 
 const displayResult = function () {
     mainBtn.remove()
     displayContainer.innerHTML = ""
-    const resultWrapper = document.createElement('div')
-    resultWrapper.innerHTML = `You scored ${correctCount} out of 10.<br><br><p style="opacity: 0.75">Please reload the page to try again.</p>`
-    displayContainer.appendChild(resultWrapper)
+    displayContainer.innerHTML = `<p>You scored ${correctCount} out of 10.</p><br><br><button class="btn" onclick="reloadPage()">Try Again</button>`
 }
